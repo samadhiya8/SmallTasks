@@ -32,7 +32,7 @@ public class CustomerInfoController {
 		return new ResponseEntity<List<Customer>>(customers, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/customer/{id}", method = RequestMethod.GET, headers = "Accept=application/json")
+	@RequestMapping(value = "/customer/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Customer> getCustomerById(@PathVariable int id) {
 		Customer customer = customerService.findCustomer(id);
 		if(customer==null)
@@ -63,7 +63,7 @@ public class CustomerInfoController {
 		return new ResponseEntity<Void>(headers, HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
+	@RequestMapping(value = "/customer/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> deleteCustomerById(@PathVariable int id) {
 		
 		int row = customerService.deleteCustomer(id);
